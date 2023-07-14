@@ -14,7 +14,7 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en">
-			<body className="bg-[rgb(36,36,36)] text-white">
+			<body className="bg-[rgb(36,36,36)] text-white snap-y snap-mandatory overflow-y-auto z-0">
 				<Header />
 
 				{children}
