@@ -1,9 +1,19 @@
+"use client";
+
 import { SocialIcon } from "react-social-icons";
+import { motion } from "framer-motion";
 
 const Header = () => {
 	return (
 		<header className="sticky top-0 flex items-start justify-between max-w-7xl mx-auto z-20 xl:items-center p-5">
-			<div className="flex items-center">
+			<motion.div
+				initial={{ x: -500, opacity: 0, scale: 0.5 }}
+				animate={{ x: 0, opacity: 1, scale: 1 }}
+				transition={{
+					duration: 1.5,
+				}}
+				className="flex items-center"
+			>
 				{/* Social Icons */}
 				<SocialIcon
 					url="https://youtube.com/sonnysangha"
@@ -20,9 +30,16 @@ const Header = () => {
 					fgColor="gray"
 					bgColor="transparent"
 				/>
-			</div>
+			</motion.div>
 
-			<div className="flex items-center cursor-pointer">
+			<motion.div
+				initial={{ x: 500, opacity: 0, scale: 0.5 }}
+				animate={{ x: 0, opacity: 1, scale: 1 }}
+				transition={{
+					duration: 1.5,
+				}}
+				className="flex items-center cursor-pointer"
+			>
 				<SocialIcon
 					className="cursor-pointer"
 					network="email"
@@ -32,7 +49,7 @@ const Header = () => {
 				<p className="uppercase hidden md:inline-flex text-sm text-gray-400">
 					Get In Touch
 				</p>
-			</div>
+			</motion.div>
 		</header>
 	);
 };
