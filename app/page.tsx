@@ -1,24 +1,24 @@
 import About from "@/components/About";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
+import WorkExperience from "@/components/WorkExperience";
 
 export default function Home() {
 	return (
 		<main className="snap-y snap-mandatory h-screen overflow-y-scroll">
 			<Header />
 
-			{/* Hero */}
 			<section id="hero" className="snap-start">
 				<Hero />
 			</section>
 
-			{/* About */}
 			<section id="about" className="snap-center">
 				<About />
 			</section>
 
-			{/* Experience */}
-
+			<section id="experience" className="snap-center">
+				<WorkExperience />
+			</section>
 			{/* Skills */}
 
 			{/* Projects */}
