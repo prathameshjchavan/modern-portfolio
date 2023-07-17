@@ -3,7 +3,11 @@
 import { SocialIcon } from "react-social-icons";
 import { motion } from "framer-motion";
 
-const Header = () => {
+type Props = {
+	socials: Social[];
+};
+
+const Header = ({ socials }: Props) => {
 	return (
 		<header className="sticky top-0 flex items-start justify-between max-w-7xl mx-auto z-20 xl:items-center p-5">
 			<motion.div
@@ -14,22 +18,14 @@ const Header = () => {
 				}}
 				className="flex items-center"
 			>
-				{/* Social Icons */}
-				<SocialIcon
-					url="https://www.youtube.com/channel/UCOulBwyRX1QJ-knIynlCPyw"
-					fgColor="gray"
-					bgColor="transparent"
-				/>
-				<SocialIcon
-					url="https://www.youtube.com/channel/UCOulBwyRX1QJ-knIynlCPyw"
-					fgColor="gray"
-					bgColor="transparent"
-				/>
-				<SocialIcon
-					url="https://www.youtube.com/channel/UCOulBwyRX1QJ-knIynlCPyw"
-					fgColor="gray"
-					bgColor="transparent"
-				/>
+				{socials.map((social) => (
+					<SocialIcon
+						key={social._id}
+						url={social.url}
+						fgColor="gray"
+						bgColor="transparent"
+					/>
+				))}
 			</motion.div>
 
 			<motion.div

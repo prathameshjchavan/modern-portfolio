@@ -4,11 +4,12 @@ const fetchContent = async (content: Content) => {
 	const res = await fetch(
 		`${
 			process.env.NEXT_PUBLIC_BASE_URL
-		}/api/get${content[0].toUpperCase()}${content.slice(1)}`
+		}/api/get${content[0].toUpperCase()}${content.slice(1)}`,
+		{ next: { revalidate: 10 } }
 	);
 
 	const data = await res.json();
-	const contents = data[content];
+	const contents: any = data[content];
 
 	return contents;
 };

@@ -6,27 +6,30 @@ import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
 import WorkExperience from "@/components/WorkExperience";
 import fetchContent from "@/utils/fetchContent";
-import { GetStaticProps } from "next";
 import Link from "next/link";
 
-type Props = {
-	pageInfo: PageInfo;
-	experiences: Experience[];
-	skills: Skill[];
-	projects: Project[];
-	socials: Social[];
+export const getData = async () => {
+	const pageInfo: PageInfo = await fetchContent("pageInfo");
+	const experiences: Experience[] = await fetchContent("experiences");
+	const skills: Skill[] = await fetchContent("skills");
+	const projects: Project[] = await fetchContent("projects");
+	const socials: Social[] = await fetchContent("socials");
+
+	return {
+		pageInfo,
+		experiences,
+		skills,
+		projects,
+		socials,
+	};
 };
 
-export default function Home({
-	pageInfo,
-	experiences,
-	skills,
-	projects,
-	socials,
-}: Props) {
+export default async function Home() {
+	const { pageInfo, experiences, skills, projects, socials } = await getData();
+
 	return (
 		<main className="snap-y snap-mandatory h-screen overflow-y-scroll overflow-x-hidden z-0 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80">
-			<Header />
+			<Header socials={socials} />
 
 			<section id="hero" className="snap-start">
 				<Hero />
@@ -68,22 +71,3 @@ export default function Home({
 		</main>
 	);
 }
-
-export const getStaticProps: GetStaticProps<Props> = async () => {
-	const pageInfo: PageInfo = await fetchContent("pageInfo");
-	const experiences: Experience[] = await fetchContent("experiences");
-	const skills: Skill[] = await fetchContent("skills");
-	const projects: Project[] = await fetchContent("projects");
-	const socials: Social[] = await fetchContent("socials");
-
-	return {
-		props: {
-			pageInfo,
-			experiences,
-			skills,
-			projects,
-			socials,
-		},
-		revalidate: 10,
-	};
-};
