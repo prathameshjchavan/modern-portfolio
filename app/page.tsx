@@ -5,9 +5,25 @@ import Hero from "@/components/Hero";
 import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
 import WorkExperience from "@/components/WorkExperience";
+import fetchContent from "@/utils/fetchContent";
+import { GetStaticProps } from "next";
 import Link from "next/link";
 
-export default function Home() {
+type Props = {
+	pageInfo: PageInfo;
+	experiences: Experience[];
+	skills: Skill[];
+	projects: Project[];
+	socials: Social[];
+};
+
+export default function Home({
+	pageInfo,
+	experiences,
+	skills,
+	projects,
+	socials,
+}: Props) {
 	return (
 		<main className="snap-y snap-mandatory h-screen overflow-y-scroll overflow-x-hidden z-0 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80">
 			<Header />
@@ -52,3 +68,22 @@ export default function Home() {
 		</main>
 	);
 }
+
+export const getStaticProps: GetStaticProps<Props> = async () => {
+	const pageInfo: PageInfo = await fetchContent("pageInfo");
+	const experiences: Experience[] = await fetchContent("experiences");
+	const skills: Skill[] = await fetchContent("skills");
+	const projects: Project[] = await fetchContent("projects");
+	const socials: Social[] = await fetchContent("socials");
+
+	return {
+		props: {
+			pageInfo,
+			experiences,
+			skills,
+			projects,
+			socials,
+		},
+		revalidate: 10,
+	};
+};
