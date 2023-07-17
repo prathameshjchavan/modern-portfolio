@@ -8,7 +8,7 @@ import Link from "next/link";
 const Hero = () => {
 	const [text, count] = useTypewriter({
 		words: [
-			"Hi, The Name's Sonny Sangha",
+			"Hi, The Name's Prathamesh Chavan",
 			"Guy-who-loves-Coffee.tsx",
 			"<ButLovesToCodeMore />",
 		],
@@ -21,9 +21,9 @@ const Hero = () => {
 			<BackgroundCircles />
 			<Image
 				className="relative rounded-full h-32 w-32 mx-auto object-cover"
-				height={600}
-				width={600}
-				src="https://cdn.sanity.io/images/ltuexkre/production/a766c574c295f2103c63c2dfdf675557c664d016-600x600.png"
+				height={400}
+				width={400}
+				src="/profile.jpeg"
 				alt=""
 			/>
 
