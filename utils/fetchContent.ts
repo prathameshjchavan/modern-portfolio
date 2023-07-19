@@ -5,7 +5,7 @@ const fetchContent = async (content: Content) => {
 		`${
 			process.env.NEXT_PUBLIC_BASE_URL
 		}/api/get${content[0].toUpperCase()}${content.slice(1)}`,
-		{ next: { revalidate: 10 } }
+		{ next: { revalidate: 3600 } }
 	);
 
 	const data = await res.json();
