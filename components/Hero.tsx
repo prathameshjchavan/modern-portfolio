@@ -5,6 +5,7 @@ import BackgroundCircles from "./BackgroundCircles";
 import Image from "next/image";
 import Link from "next/link";
 import { urlFor } from "@/sanity";
+import { Fragment } from "react";
 
 type Props = {
 	pageInfo: PageInfo;
@@ -32,19 +33,26 @@ const Hero = ({ pageInfo }: Props) => {
 				alt=""
 			/>
 
-			<div className="z-20">
-				<h2 className="text-sm uppercase text-gray-500 pb-2 tracking-[15px]">
+			<div className="z-20 flex flex-col items-center">
+				<h2 className="text-sm md:text-base lg:text-lg uppercase text-gray-500 pb-5 tracking-[8px] md:tracking-[12px] lg:tracking-[15px]">
 					{pageInfo.role}
 				</h2>
 
-				<h1>
-					<span className="mr-3 text-5xl xl:text-6xl font-semibold px-10">
+				<h1 className="flex items-center">
+					<span className="mr-1 text-2xl sm:text-3xl md:text-4xl lg:text-5xl font-semibold">
 						{text}
 					</span>
-					<Cursor cursorColor="#F7AB0A" />
+					<Cursor
+						cursorColor="#F7AB0A"
+						cursorStyle={
+							<div className="inline text-2xl md:text-3xl lg:text-4xl xl:text-6xl">
+								|
+							</div>
+						}
+					/>
 				</h1>
 
-				<div className="pt-5">
+				<div className="pt-10">
 					<Link href="#about">
 						<button className="heroButton">About</button>
 					</Link>
