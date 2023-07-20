@@ -22,26 +22,26 @@ const ContactMe = () => {
 				Contact
 			</h3>
 
-			<div className="flex flex-col space-y-10">
-				<h4 className="text-4xl font-semibold text-center">
+			<div className="mt-20 flex flex-col space-y-8">
+				<h4 className="text-lg font-semibold text-center">
 					I have got what you need.{" "}
 					<span className="decoration-[#F7AB0A]/50 underline">Lets Talk.</span>
 				</h4>
 
-				<div className="space-y-10">
+				<div className="space-y-2">
 					<div className="flex items-center space-x-5 justify-center">
-						<PhoneIcon className="h-7 w-7 animate-pulse text-[#F7AB0A]" />
-						<p className="text-2xl">+1234567890</p>
+						<PhoneIcon className="h-5 w-5 animate-pulse text-[#F7AB0A]" />
+						<p className="text-base">+1234567890</p>
 					</div>
 
 					<div className="flex items-center space-x-5 justify-center">
-						<EnvelopeIcon className="h-7 w-7 animate-pulse text-[#F7AB0A]" />
-						<p className="text-2xl">papareact.team@gmail.com</p>
+						<EnvelopeIcon className="h-5 w-5 animate-pulse text-[#F7AB0A]" />
+						<p className="text-base">papareact.team@gmail.com</p>
 					</div>
 
 					<div className="flex items-center space-x-5 justify-center">
-						<MapPinIcon className="h-7 w-7 animate-pulse text-[#F7AB0A]" />
-						<p className="text-2xl">123 Developer Lane</p>
+						<MapPinIcon className="h-5 w-5 animate-pulse text-[#F7AB0A]" />
+						<p className="text-base">123 Developer Lane</p>
 					</div>
 				</div>
 
