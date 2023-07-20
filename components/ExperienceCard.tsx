@@ -14,7 +14,7 @@ const ExperienceCard = ({ experience }: Props) => {
 				transition={{ duration: 1.2 }}
 				whileInView={{ opacity: 1, y: 0 }}
 				viewport={{ once: true }}
-				className="w-20 h-20 rounded-full xl:w-32 xl:h-32 object-cover object-center"
+				className="w-20 h-20 rounded-full xl:w-32 xl:h-32 object-contain"
 				src={urlFor(experience.companyImage).url()}
 			/>
 
@@ -29,7 +29,7 @@ const ExperienceCard = ({ experience }: Props) => {
 					{experience.technologies.map((technology) => (
 						<img
 							key={technology._id}
-							className="h-8 w-8 sm:h-10 sm:w-10 lg:w-12 lg:h-12 rounded-full"
+							className="h-8 w-8 object-contain sm:h-10 sm:w-10 lg:w-12 lg:h-12 rounded-full"
 							src={urlFor(technology.image).url()}
 							alt=""
 						/>
