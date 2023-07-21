@@ -6,16 +6,20 @@ import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
 import WorkExperience from "@/components/WorkExperience";
 import { urlFor } from "@/sanity";
-import fetchContent from "@/utils/fetchContent";
+import getExperiences from "@/utils/getExperiences";
+import getPageInfo from "@/utils/getPageInfo";
+import getProjects from "@/utils/getProjects";
+import getSkills from "@/utils/getSkills";
+import getSocials from "@/utils/getSocials";
 import Image from "next/image";
 import Link from "next/link";
 
 const getData = async () => {
-	const pageInfo: PageInfo = await fetchContent("pageInfo");
-	const experiences: Experience[] = await fetchContent("experiences");
-	const skills: Skill[] = await fetchContent("skills");
-	const projects: Project[] = await fetchContent("projects");
-	const socials: Social[] = await fetchContent("socials");
+	const pageInfo = await getPageInfo();
+	const experiences = await getExperiences();
+	const skills = await getSkills();
+	const projects = await getProjects();
+	const socials = await getSocials();
 
 	return {
 		pageInfo,

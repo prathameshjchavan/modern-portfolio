@@ -1,6 +1,5 @@
-import { NextResponse } from "next/server";
-import { groq } from "next-sanity";
 import { clientFetch } from "@/sanity";
+import { groq } from "next-sanity";
 
 const query = groq`
     *[_type == "pageInfo"][0] {
@@ -9,8 +8,10 @@ const query = groq`
     }
 `;
 
-export async function GET(request: Request) {
+const getPageInfo = async () => {
 	const pageInfo: PageInfo = await clientFetch(query);
 
-	return NextResponse.json({ pageInfo }, { status: 200 });
-}
+	return pageInfo;
+};
+
+export default getPageInfo;

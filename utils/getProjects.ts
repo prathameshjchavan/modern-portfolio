@@ -1,6 +1,5 @@
-import { NextResponse } from "next/server";
-import { groq } from "next-sanity";
 import { clientFetch } from "@/sanity";
+import { groq } from "next-sanity";
 
 const query = groq`
     *[_type == "project"] {
@@ -9,8 +8,10 @@ const query = groq`
     }
 `;
 
-export async function GET(request: Request) {
+const getProjects = async () => {
 	const projects: Project[] = await clientFetch(query);
 
-	return NextResponse.json({ projects }, { status: 200 });
-}
+	return projects;
+};
+
+export default getProjects;

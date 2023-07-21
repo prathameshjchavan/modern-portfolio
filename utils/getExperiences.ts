@@ -1,6 +1,5 @@
-import { NextResponse } from "next/server";
-import { groq } from "next-sanity";
 import { clientFetch } from "@/sanity";
+import { groq } from "next-sanity";
 
 const query = groq`
     *[_type == "experience"] {
@@ -9,8 +8,10 @@ const query = groq`
     }
 `;
 
-export async function GET(request: Request) {
+const getExperiences = async () => {
 	const experiences: Experience[] = await clientFetch(query);
 
-	return NextResponse.json({ experiences }, { status: 200 });
-}
+	return experiences;
+};
+
+export default getExperiences;
