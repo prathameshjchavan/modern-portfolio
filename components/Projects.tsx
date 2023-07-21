@@ -3,6 +3,7 @@
 import { urlFor } from "@/sanity";
 import { motion } from "framer-motion";
 import "./Projects.css";
+import Image from "next/image";
 
 type Props = {
 	projects: Project[];
@@ -32,7 +33,7 @@ const Projects = ({ projects }: Props) => {
 							whileInView={{ opacity: 1, y: 0 }}
 							viewport={{ once: true }}
 							src={urlFor(project.image).url()}
-							alt=""
+							alt={project.title}
 							className="w-[360px] h-[200px] lg:w-[450px] lg:h-[250px] object-cover"
 						/>
 
@@ -46,11 +47,13 @@ const Projects = ({ projects }: Props) => {
 
 							<div className="flex items-center space-x-2 justify-center">
 								{project.technologies.map((technology) => (
-									<img
+									<Image
 										className="h-10 w-10 object-contain"
 										key={technology._id}
+										width={500}
+										height={500}
 										src={urlFor(technology.image).url()}
-										alt=""
+										alt={technology.title}
 									/>
 								))}
 							</div>

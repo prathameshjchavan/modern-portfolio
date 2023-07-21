@@ -5,7 +5,6 @@ import BackgroundCircles from "./BackgroundCircles";
 import Image from "next/image";
 import Link from "next/link";
 import { urlFor } from "@/sanity";
-import { Fragment } from "react";
 
 type Props = {
 	pageInfo: PageInfo;
@@ -30,7 +29,7 @@ const Hero = ({ pageInfo }: Props) => {
 				height={400}
 				width={400}
 				src={urlFor(pageInfo.heroImage).url()}
-				alt=""
+				alt="hero image"
 			/>
 
 			<div className="z-20 flex flex-col items-center">
