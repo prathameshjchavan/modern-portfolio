@@ -30,18 +30,22 @@ const ContactMe = () => {
 
 				<div className="space-y-2">
 					<div className="flex items-center space-x-5 justify-center">
-						<PhoneIcon className="h-5 w-5 animate-pulse text-[#F7AB0A]" />
-						<p className="text-base">+1234567890</p>
+						<a href="tel:+918850767392">
+							<PhoneIcon className="h-5 w-5 animate-pulse text-[#F7AB0A]" />
+						</a>
+						<p className="text-base">+91 8850767392</p>
 					</div>
 
 					<div className="flex items-center space-x-5 justify-center">
-						<EnvelopeIcon className="h-5 w-5 animate-pulse text-[#F7AB0A]" />
-						<p className="text-base">papareact.team@gmail.com</p>
+						<a href="mailto:prathamesh.chavan216@gmail.com">
+							<EnvelopeIcon className="h-5 w-5 animate-pulse text-[#F7AB0A]" />
+						</a>
+						<p className="text-base">prathamesh.chavan216@gmail.com</p>
 					</div>
 
 					<div className="flex items-center space-x-5 justify-center">
 						<MapPinIcon className="h-5 w-5 animate-pulse text-[#F7AB0A]" />
-						<p className="text-base">123 Developer Lane</p>
+						<p className="text-base">Mumbai, India</p>
 					</div>
 				</div>
 
