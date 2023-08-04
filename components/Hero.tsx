@@ -5,6 +5,7 @@ import BackgroundCircles from "./BackgroundCircles";
 import Image from "next/image";
 import Link from "next/link";
 import { urlFor } from "@/sanity";
+import { motion } from "framer-motion";
 
 type Props = {
 	pageInfo: PageInfo;
@@ -22,7 +23,12 @@ const Hero = ({ pageInfo }: Props) => {
 	});
 
 	return (
-		<div className="h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden">
+		<motion.div
+			initial={{ opacity: 0 }}
+			transition={{ duration: 1.2 }}
+			whileInView={{ opacity: 1 }}
+			className="h-screen flex flex-col space-y-8 items-center justify-center text-center overflow-hidden"
+		>
 			<BackgroundCircles />
 			<Image
 				className="relative rounded-full h-32 w-32 mx-auto object-cover"
@@ -66,7 +72,7 @@ const Hero = ({ pageInfo }: Props) => {
 					</Link>
 				</div>
 			</div>
-		</div>
+		</motion.div>
 	);
 };
 
