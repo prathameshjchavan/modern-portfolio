@@ -34,7 +34,7 @@ export default async function Home() {
 	const { pageInfo, experiences, skills, projects, socials } = await getData();
 
 	return (
-		<main className="snap-y snap-mandatory h-screen overflow-y-scroll overflow-x-hidden z-0 scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80">
+		<main className="snap-y snap-mandatory h-screen overflow-y-scroll overflow-x-hidden z-0 scrollbar-thin sm:scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80">
 			<Header socials={socials} />
 
 			<section id="hero" className="snap-start">
