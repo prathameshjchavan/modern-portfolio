@@ -1,6 +1,7 @@
 import "./globals.css";
 import type { Metadata } from "next";
 import { Analytics } from "@vercel/analytics/react";
+import ScrollObserver from "@/utils/ScrollObserver";
 
 export const metadata: Metadata = {
 	title: "Prathamesh's Portfolio",
@@ -14,7 +15,9 @@ export default function RootLayout({
 }) {
 	return (
 		<html lang="en">
-			<body className="bg-[rgb(36,36,36)] text-white z-0">{children}</body>
+			<ScrollObserver>
+				<body className="bg-[rgb(36,36,36)] text-white z-0">{children}</body>
+			</ScrollObserver>
 			<Analytics />
 		</html>
 	);
