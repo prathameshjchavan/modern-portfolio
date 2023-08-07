@@ -1,17 +1,16 @@
 import About from "@/components/About";
 import ContactMe from "@/components/ContactMe";
+import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Projects from "@/components/Projects";
 import Skills from "@/components/Skills";
 import WorkExperience from "@/components/WorkExperience";
-import { urlFor } from "@/sanity";
 import getExperiences from "@/utils/getExperiences";
 import getPageInfo from "@/utils/getPageInfo";
 import getProjects from "@/utils/getProjects";
 import getSkills from "@/utils/getSkills";
 import getSocials from "@/utils/getSocials";
-import Image from "next/image";
 import Link from "next/link";
 
 const getData = async () => {
@@ -36,7 +35,6 @@ export default async function Home() {
 	return (
 		<main className="snap-y snap-mandatory h-screen overflow-y-scroll overflow-x-hidden z-0 scrollbar-thin sm:scrollbar scrollbar-track-gray-400/20 scrollbar-thumb-[#F7AB0A]/80">
 			<Header socials={socials} />
-
 			<section id="hero" className="snap-start">
 				<Hero pageInfo={pageInfo} />
 			</section>
@@ -45,7 +43,7 @@ export default async function Home() {
 				<About pageInfo={pageInfo} />
 			</section>
 
-			<section id="experience" className="snap-center">
+			<section id="experience" className="snap-start">
 				<WorkExperience experiences={experiences} />
 			</section>
 
@@ -64,17 +62,7 @@ export default async function Home() {
 			</section>
 
 			<Link href="#hero">
-				<footer className="sticky bottom-5 w-full cursor-pointer">
-					<div className="flex items-center justify-center">
-						<Image
-							width={400}
-							height={400}
-							className="h-10 w-10 rounded-full filter grayscale hover:grayscale-0 cursor-pointer"
-							src={urlFor(pageInfo.heroImage).url()}
-							alt="go to hero section"
-						/>
-					</div>
-				</footer>
+				<Footer heroImage={pageInfo.heroImage} />
 			</Link>
 		</main>
 	);
