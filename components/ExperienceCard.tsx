@@ -1,12 +1,13 @@
 import { urlFor } from "@/sanity";
 import { motion } from "framer-motion";
 import Image from "next/image";
+import "./ExperienceCard.css";
 
 type Props = { experience: Experience };
 
 const ExperienceCard = ({ experience }: Props) => {
 	return (
-		<article className="flex flex-col rounded-lg items-center space-y-7 flex-shrink-0 w-[400px] sm:w-[500px] md:w-[600px] xl:w-[900px] snap-center bg-[#292929] p-5 xl:p-8 opacity-40 hover:opacity-100 cursor-pointer transition-opacity duration-200 overflow-hidden">
+		<article className="flex flex-col rounded-lg items-center space-y-4 sm:space-y-7 flex-shrink-0 w-full sm:w-[500px] md:w-[600px] xl:w-[900px] snap-center bg-[#292929] p-5 xl:p-8 opacity-40 hover:opacity-100 cursor-pointer transition-opacity duration-200 overflow-hidden">
 			<motion.img
 				initial={{
 					y: -100,
@@ -47,7 +48,9 @@ const ExperienceCard = ({ experience }: Props) => {
 
 				<ul className="list-disc list-outside text-xs md:text-sm space-y-4 max-h-96 pr-5 overflow-y-auto scrollbar-thin scrollbar-track-black scrollbar-thumb-[#F7AB0A]/80">
 					{experience.points.map((point, i) => (
-						<li key={i}>{point}</li>
+						<li className="text text-justify" key={i}>
+							{point}
+						</li>
 					))}
 				</ul>
 			</div>
