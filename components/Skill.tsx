@@ -1,6 +1,6 @@
 "use client";
 
-import useDimensions from "@/hooks/useTWBreakpoints";
+import useTWBreakpoints from "@/hooks/useTWBreakpoints";
 import { urlFor } from "@/sanity";
 import { motion, useMotionValue, useMotionValueEvent } from "framer-motion";
 import { useMemo, useState, useCallback } from "react";
@@ -14,7 +14,7 @@ const Skill = ({ skill, directionLeft }: Props) => {
 	const motionValue = useMotionValue(0);
 	const [animationComplete, setAnimationComplete] = useState(false);
 	const imgSrc = useMemo(() => urlFor(skill.image).url(), [skill]);
-	const { matchesSM, matchesMD, matchesLG, matchesXL } = useDimensions();
+	const { matchesSM, matchesMD, matchesLG, matchesXL } = useTWBreakpoints();
 
 	const getXValue = useCallback(
 		(isNegative: boolean) => {

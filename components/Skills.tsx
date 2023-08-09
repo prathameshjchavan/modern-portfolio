@@ -1,4 +1,6 @@
-import Skill from "./Skill";
+import dynamic from "next/dynamic";
+
+const Skill = dynamic(() => import("./Skill"), { ssr: false });
 
 type Props = {
 	skills: Skill[];
