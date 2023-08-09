@@ -9,7 +9,7 @@ type Props = {
 
 const Header = ({ socials }: Props) => {
 	return (
-		<header className="sticky top-0 flex items-start justify-between max-w-7xl mx-auto z-20 xl:items-center p-5">
+		<header className="sticky bg-[rgb(36,36,36)] top-0 flex items-start justify-between max-w-7xl mx-auto z-20 xl:items-center p-5">
 			<motion.div
 				initial={{ x: -500, opacity: 0, scale: 0.5 }}
 				animate={{ x: 0, opacity: 1, scale: 1 }}
