@@ -49,10 +49,7 @@ const ContactMe = () => {
 					</div>
 				</div>
 
-				<form
-					onSubmit={onSubmit}
-					className="flex flex-col space-y-2 w-fit mx-auto"
-				>
+				<form onSubmit={onSubmit} className="flex flex-col space-y-2 mx-auto">
 					<div className="flex space-x-2">
 						<input
 							{...register("name")}
