@@ -20,7 +20,7 @@ const Footer = ({ heroImage }: Props) => {
 				animate={{ y: 0 }}
 				exit={{ y: 100 }}
 				transition={{ duration: 1.5 }}
-				className="sticky bottom-5 w-full cursor-pointer"
+				className="sticky bottom-5 w-fit mx-auto cursor-pointer"
 			>
 				<div className="flex items-center justify-center">
 					<Image
