@@ -1,15 +1,29 @@
 "use client";
 
 import { urlFor } from "@/sanity";
-import { motion } from "framer-motion";
+import { motion, useMotionValue, useMotionValueEvent } from "framer-motion";
 import "./Projects.css";
 import Image from "next/image";
+import { LinkIcon } from "@heroicons/react/24/outline";
+import { useState } from "react";
+import Link from "next/link";
 
 type Props = {
 	projects: Project[];
 };
 
 const Projects = ({ projects }: Props) => {
+	const motionValue = useMotionValue(0);
+	const [animationComplete, setAnimationComplete] = useState(false);
+
+	useMotionValueEvent(motionValue, "animationStart", () => {
+		setAnimationComplete(false);
+	});
+
+	useMotionValueEvent(motionValue, "animationComplete", () => {
+		setAnimationComplete(true);
+	});
+
 	return (
 		<motion.div
 			initial={{ opacity: 0 }}
@@ -27,15 +41,27 @@ const Projects = ({ projects }: Props) => {
 						key={project._id}
 						className="w-screen flex-shrink-0 snap-center flex flex-col space-y-5 items-center justify-center pt-10 lg:pt-20 px-10 h-screen"
 					>
-						<motion.img
-							initial={{ y: -200, opacity: 0 }}
-							transition={{ duration: 1.2 }}
-							whileInView={{ opacity: 1, y: 0 }}
-							viewport={{ once: true }}
-							src={urlFor(project.image).url()}
-							alt={project.title}
-							className="w-[360px] h-[200px] lg:w-[450px] lg:h-[250px] object-cover"
-						/>
+						<div className="relative">
+							<motion.img
+								style={{ y: motionValue }}
+								initial={{ y: -200, opacity: 0 }}
+								transition={{ duration: 1.2 }}
+								whileInView={{ opacity: 1, y: 0 }}
+								viewport={{ once: true }}
+								src={urlFor(project.image).url()}
+								alt={project.title}
+								className="object-cover w-[360px] h-[200px] lg:w-[450px] lg:h-[250px]"
+							/>
+							{animationComplete && (
+								<Link
+									href={project.linkToBuild}
+									target="_blank"
+									className="absolute flex items-center justify-center top-0 opacity-0 hover:opacity-100 bg-black/70 transition-opacity duration-150 ease-in w-full h-full z-2 cursor-pointer"
+								>
+									<LinkIcon className="w-10 h-10" />
+								</Link>
+							)}
+						</div>
 
 						<div className="flex flex-col items-center space-y-5 px-0 md:px-10 max-w-6xl">
 							<h4 className="text-2xl md:text-3xl lg:text-4xl font-semibold text-center">
@@ -58,7 +84,7 @@ const Projects = ({ projects }: Props) => {
 								))}
 							</div>
 
-							<p className="summary overflow-hidden text-sm md:text-base lg:text-lg text-center md:text-left max-w-4xl">
+							<p className="summary overflow-hidden text-justify text-sm md:text-base lg:text-lg md:text-left max-w-4xl">
 								{project.summary}
 							</p>
 						</div>
