@@ -21,7 +21,7 @@ const SkillsRows = ({ skills, xValue }: Props) => {
 			className="grid grid-cols-4 gap-5"
 		>
 			{skills.map((skill) => (
-				<Skill skill={skill} />
+				<Skill key={skill._id} skill={skill} />
 			))}
 		</motion.div>
 	);
