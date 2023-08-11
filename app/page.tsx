@@ -4,7 +4,6 @@ import Footer from "@/components/Footer";
 import Header from "@/components/Header";
 import Hero from "@/components/Hero";
 import Projects from "@/components/Projects";
-import Skills from "@/components/Skills";
 import WorkExperience from "@/components/WorkExperience";
 import getExperiences from "@/utils/getExperiences";
 import getPageInfo from "@/utils/getPageInfo";
@@ -13,6 +12,8 @@ import getSkills from "@/utils/getSkills";
 import getSocials from "@/utils/getSocials";
 import dynamic from "next/dynamic";
 import Link from "next/link";
+
+const Skills = dynamic(() => import("@/components/Skills"), { ssr: false });
 
 const getData = async () => {
 	const pageInfo = await getPageInfo();
