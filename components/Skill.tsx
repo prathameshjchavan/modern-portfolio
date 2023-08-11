@@ -3,7 +3,7 @@
 import useTWBreakpoints from "@/hooks/useTWBreakpoints";
 import { urlFor } from "@/sanity";
 import { motion, useMotionValue, useMotionValueEvent } from "framer-motion";
-import { useMemo, useState, useCallback } from "react";
+import { useMemo, useState } from "react";
 
 type Props = {
 	skill: Skill;
@@ -16,9 +16,9 @@ const Skill = ({ skill, directionLeft }: Props) => {
 	const imgSrc = useMemo(() => urlFor(skill.image).url(), [skill]);
 	const { matchesSM, matchesMD, matchesLG, matchesXL } = useTWBreakpoints();
 
-	const getXValue = useCallback(
-		(isNegative: boolean) => {
-			const xValue = matchesSM
+	const xValue = useMemo(
+		() =>
+			matchesSM
 				? 80
 				: matchesMD
 				? 200
@@ -26,10 +26,7 @@ const Skill = ({ skill, directionLeft }: Props) => {
 				? 300
 				: matchesXL
 				? 350
-				: 400;
-
-			return isNegative ? Number(`-${xValue}`) : xValue;
-		},
+				: 400,
 		[matchesSM, matchesMD, matchesLG, matchesXL]
 	);
 
@@ -49,11 +46,12 @@ const Skill = ({ skill, directionLeft }: Props) => {
 		>
 			<motion.img
 				initial={{
-					x: directionLeft ? getXValue(true) : getXValue(false),
+					x: directionLeft ? Number(`-${xValue}`) : xValue,
 					opacity: 0,
 				}}
 				transition={{ duration: 1 }}
 				whileInView={{ opacity: 1, x: 0 }}
+				viewport={{ once: true }}
 				src={imgSrc}
 				style={{ x: motionValue }}
 				className="rounded-full border border-gray-500 object-cover w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 filter group-hover:grayscale transition duration-300 ease-in-out"
