@@ -6,7 +6,7 @@ type Props = {
 
 const Skill = ({ skill }: Props) => {
 	return (
-		<div className="relative flex cursor-pointer">
+		<div className="relative group flex cursor-pointer">
 			<img
 				src={urlFor(skill.image).url()}
 				className="rounded-full border border-gray-500 object-cover w-12 h-12 sm:w-16 sm:h-16 md:w-20 md:h-20 filter group-hover:grayscale transition duration-300 ease-in-out"
