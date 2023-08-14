@@ -15,7 +15,7 @@ const WorkExperience = ({ experiences }: Props) => {
 			transition={{ duration: 1.5 }}
 			className="h-screen flex flex-col relative overflow-hidden text-left max-w-full mx-2 sm:mx-10 justify-center items-center"
 		>
-			<h3 className="text-xl md:absolute md:top-20 uppercase tracking-[20px] -mr-[20px] text-gray-500">
+			<h3 className="text-xl md:absolute -mb-5 sm:mt-5 md:mt-0 md:mb-0 md:top-[88px] uppercase tracking-[20px] -mr-[20px] text-gray-500">
 				Experience
 			</h3>
 
