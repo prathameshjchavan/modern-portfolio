@@ -10,7 +10,7 @@ type Props = {
 };
 
 const Footer = ({ heroImage }: Props) => {
-	const url = useMemo(() => urlFor(heroImage).url(), [urlFor, heroImage]);
+	const url = useMemo(() => urlFor(heroImage).url(), [heroImage]);
 
 	return (
 		<AnimatePresence>
